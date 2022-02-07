@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/drawable/category_background.xml" value="0.1" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.165234375" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/drawable/menu_navbar.xml" value="0.165234375" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/adapter_categorie.xml" value="0.22" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/adapter_produit_commande.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/cart_activity.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/categorie_adapter.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/dashboard.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/details_activity.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/details_fragment.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/fragment_details.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/fragment_inventory.xml" value="0.1" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/fragment_orders_dashboard.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/inventory_dashboard.xml" value="0.153125" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/main_activity2.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/newproduct.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/ordering_activity.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/orders_dahboard.xml" value="0.22" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/orders_dashboard.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/register_client.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/reports_dashboard.xml" value="0.15" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/second_activity.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/sells_dashboard.xml" value="0.153125" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/table_view.xml" value="0.1" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/test.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/view_catgeories_holder.xml" value="0.67" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/viewholder_card.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/viewholder_card_list.xml" value="0.153125" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/viewholder_popular.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/layout/zdzdzzzf.xml" value="0.1" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/menu/bottom_nav_menu.xml" value="0.153125" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/Abdellah/AndroidStudioProjects/YOUBER/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "219435723847",
+    "project_id": "youber-f73d1",
+    "storage_bucket": "youber-f73d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219435723847:android:cd3d2042b6988c37461562",
+        "android_client_info": {
+          "package_name": "com.example.youber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219435723847-dt4lekr7p0r12ord2lsa4id4n62hehkg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEcLHWkNxyOE4QwBBewF7VlTvffXs5v3Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219435723847-dt4lekr7p0r12ord2lsa4id4n62hehkg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

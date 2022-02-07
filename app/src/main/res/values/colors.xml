@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Green1">#3FC060</color>
+    <color name="cardView">#DFF5CE</color>
+    <!--color name="Green1">#3FC060</color-->
+    <!--color name="Green1">#3FC060</color-->
+    <!--color name="Green1">#3FC060</color-->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Green_Logo">#3FC060</color>
+    <color name="green_Logo2">#162328</color>
+
+
+    <color name="colorTextWhite">#ffffff</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorTextBlack">#000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorEditText">#14000000</color>
+    <color name="colorButtonText">#ffffff</color>
+    <color name="colorPlaceholder">#505050</color>
+
+</resources>
