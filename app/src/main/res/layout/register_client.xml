@@ -194,6 +194,7 @@
                     android:background="@drawable/green_button"
                     app:backgroundTint="@color/Green_Logo"
                     android:paddingRight="26dp"
+                    android:textColor="@color/white"
                     android:text="Enregistrer"
                     android:layout_gravity="center_horizontal"
                     android:textAllCaps="false"
