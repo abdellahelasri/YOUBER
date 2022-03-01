@@ -100,7 +100,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             public void onClick(View v) {
                 DetailsFragment fragment = new DetailsFragment();
                 FragmentTransaction fragmentTransaction = ((AppCompatActivity)v.getContext()).getSupportFragmentManager().beginTransaction();
-                /*AppCompatActivity activity = (AppCompatActivity) v.getContext();*/
                 int id_cat =  categoriesMenu.get(holder.getAdapterPosition()).getId();
                 Bundle catClickBundle = new Bundle();
                 catClickBundle.putInt("id_categorie", id_cat);

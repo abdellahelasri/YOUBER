@@ -4,22 +4,22 @@ import android.database.Cursor;
 
 public class Categorie {
     private int id;
-    private String titre;
+    private String nom;
     private String pic;
 
     public Categorie(String titre, String pic) {
-        this.titre = titre;
+        this.nom = titre;
         this.pic = pic;
     }
 
     public Categorie(Cursor cursor)
     {
-        titre = cursor.getString(cursor.getColumnIndexOrThrow("nom"));
+        nom = cursor.getString(cursor.getColumnIndexOrThrow("nom"));
         id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
     }
 
     public String getTitre() {
-        return titre;
+        return nom;
     }
 
     public int getId() {
@@ -35,7 +35,7 @@ public class Categorie {
     }
 
     public void setTitre(String titre) {
-        this.titre = titre;
+        this.nom = titre;
     }
 
     public void setPic(String pic) {

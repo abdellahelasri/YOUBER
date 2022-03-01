@@ -2,21 +2,20 @@
 <resources>
     <color name="Green1">#3FC060</color>
     <color name="cardView">#DFF5CE</color>
-    <!--color name="Green1">#3FC060</color-->
-    <!--color name="Green1">#3FC060</color-->
-    <!--color name="Green1">#3FC060</color-->
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="Green_Logo">#3FC060</color>
     <color name="green_Logo2">#162328</color>
-
+    <color name="red">#c93030</color>
 
     <color name="colorTextWhite">#ffffff</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorTextBlack">#000000</color>
     <color name="colorBlack">#000000</color>
     <color name="colorEditText">#14000000</color>
+    <color name="TextGrey">#6e6e70</color>
     <color name="colorButtonText">#ffffff</color>
-    <color name="colorPlaceholder">#505050</color>
+    <color name="colorPlaceholder">#6e6e70</color>
 
 </resources>

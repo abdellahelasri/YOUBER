@@ -4,7 +4,7 @@ import android.database.Cursor;
 
 import java.io.Serializable;
 
-public class Produit implements Serializable {
+public class Produit  {
     private int idcat;
     private String nom;
     private String logo;
@@ -12,12 +12,19 @@ public class Produit implements Serializable {
     private int id;
     private int qantite;
 
+    private  static  final String IDP_COL = "idproduit";
+    private  static  final String  IDCAT_COL = "idcat" ;
+    private static  final  String  NOM_COL = "nom";
+    private static  final  String  QUANTITE_COL = "quantite_stock" ;
+    private static  final  String  PRIX_COL = "prix" ;
+
     public Produit (Cursor cursor)
     {
-        idcat = cursor.getInt(cursor.getColumnIndexOrThrow("idcat"));
-        nom = cursor.getString(cursor.getColumnIndexOrThrow("nom"));
-        prix = cursor.getDouble(cursor.getColumnIndexOrThrow("prix"));
-        qantite = cursor.getInt(cursor.getColumnIndexOrThrow("quantite_stock"));
+        id = cursor.getInt(cursor.getColumnIndexOrThrow(IDP_COL));
+        idcat = cursor.getInt(cursor.getColumnIndexOrThrow(IDCAT_COL));
+        nom = cursor.getString(cursor.getColumnIndexOrThrow(NOM_COL));
+        prix = cursor.getDouble(cursor.getColumnIndexOrThrow(PRIX_COL));
+        qantite = cursor.getInt(cursor.getColumnIndexOrThrow(QUANTITE_COL));
     }
 
     public String getTitre() {

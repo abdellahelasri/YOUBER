@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.youber">
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,50 +12,68 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YOUBER">
+        <activity
+            android:name=".domain.AddCategorie"
+            android:exported="true" />
 
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.YOUBER.NoActionBar"
-            android:exported="true">
+        <activity
+            android:name=".domain.ManageCategorie"
+            android:exported="true" />
+
+        <activity
+            android:name=".SecondActivity"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".SecondActivity"
-            android:theme="@style/Theme.YOUBER.NoActionBar"
-            android:exported="true"/>
         <activity
-            android:name=".LoginActivity"
-            android:theme="@style/Theme.YOUBER.NoActionBar"
-            android:exported="true">
-
-        </activity>
-
-
+            android:name=".domain.ManageProduit"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
+        <activity
+            android:name=".Client.ManageClient"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
         <activity
             android:name=".NewOrderActivity"
-            android:theme="@style/Theme.YOUBER.NoActionBar"
-            android:exported="true">
-
-        </activity>
-
-        <!--activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.YOUBER.NoActionBar"
-            android:exported="true">
-        </activity-->
-
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
         <activity
-            android:name=".Register_Client"
-            android:theme="@style/Theme.YOUBER.NoActionBar"
-            android:exported="true">
-
-        </activity>
-
-
-
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
+        <activity
+            android:name=".CartListActivity"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
+        <activity
+            android:name=".Client.Register_Client"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
+        <activity
+            android:name=".domain.AddProduit"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
+        <activity
+            android:name=".domain.UpdateProduitActivity"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
+        <activity
+            android:name=".Client.Client_full_display"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
+        <activity
+            android:name=".Client.UpdateClientActivity"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
     </application>
 
 </manifest>

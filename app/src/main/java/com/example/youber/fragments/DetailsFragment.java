@@ -29,6 +29,7 @@ public class DetailsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         DBhelper = new DatabaseHelper(this.getContext());
+        RecyclerView rv = new RecyclerView(this.getContext());
 
         /**
          * Display the products of selected category
@@ -45,9 +46,9 @@ public class DetailsFragment extends Fragment {
             listeProduits = DBhelper.displayCatProducts(id_cat);
         }
 
-        RecyclerView rv = new RecyclerView(this.getContext());
+
         rv.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-        rv.setAdapter(new ProduitAdapter(listeProduits));
+        rv.setAdapter(new ProduitAdapter(listeProduits,getContext()));
         return rv;
     }
 }

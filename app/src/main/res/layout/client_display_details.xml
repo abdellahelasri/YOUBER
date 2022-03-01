@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+   >
+
+    <ImageView
+        android:id="@+id/id_icon_client_full_display"
+        android:layout_width="163dp"
+        android:layout_height="196dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="4dp"
+        app:srcCompat="@drawable/user_icon" />
+    <TextView
+        android:id="@+id/id_name_client_full_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="TextView"
+        />
+
+    <!--Edit text to enter course name-->
+    <TextView
+        android:id="@+id/id_prename_client_full_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Prenom" />
+
+    <TextView
+        android:id="@+id/id_telephone_client_full_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Telephone" />
+
+    <TextView
+        android:id="@+id/id_adressePostale_client_full_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="TextView" />
+
+
+    <Button
+        android:id="@+id/id_alterbutton_client_full_display"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="100dp"
+        android:text="Modifier"
+        android:textAllCaps="false"
+        app:backgroundTint="@color/Green_Logo" />
+
+    <Button
+        android:id="@+id/id_delete_button_client_full_display"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="100dp"
+        android:text="Supprimer"
+        android:textAllCaps="false"
+        app:backgroundTint="@color/Green_Logo" />
+
+</LinearLayout>

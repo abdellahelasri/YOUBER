@@ -1,6 +1,42 @@
 <resources>
     <string name="app_name">YOUBER</string>
     <string name="title_activity_main">MainActivity</string>
-    <!-- Strings used for fragments for navigation -->
+    <string name="restaurant">Nom restaurant</string>
+    <string name="CreateAnAccount">Créer un compte</string>
+    <string name="Username">Nom d\'utilisateur</string>
+    <string name="email">Adresse mail</string>
+    <string name="ActivationCode">Code d\'activation</string>
+    <string name="Receive">Recevoir</string>
+    <string name="order">Commande</string>
+    <string name="password">Mot de passe</string>
+    <string name="passwordConfirm">Confirmer mot de passe</string>
+    <string name="adress">Adresse</string>
+    <string name="city">Ville</string>
+    <string name="siret">Numéro SIRET</string>
+    <string name="phone">Téléphne</string>
+    <string name="categories">Catégories</string>
+    <string name="products">Produits</string>
+    <string name="clients">Clients</string>
+    <string name="add_product">Ajouter un produit:</string>
+    <string name="add_category">Ajouter une catégorie:</string>
+    <string name="search_product">Chercher produit...</string>
+    <string name="save">Enregistrer</string>
+    <string name="upload_image">Importer</string>
+    <string name="add_to_cart">+ Ajouter</string>
+    <string name="cart">PANIER</string>
+    <string name="take_photo">Camera</string>
+    <string name="price">Prix</string>
+    <string name="quantity">Quantité</string>
+    <string name="product_name">Nom du produit</string>
+    <string name="category_name">Nom de catégorie</string>
+    <string name="select_cat">Sélectionner catégorie</string>
+    <string name="select_time">Heure de livraison</string>
+    <string name="select_date">Date de livraison</string>
+    <string name="order_type">Type de commande</string>
+    <string name="countable">Stockable</string>
+    <string name="currency">€</string>
+    <string name="Checkout">Valider</string>
+    <string name="countable_">"Veuillez préciser la quantité"</string>
+
 
 </resources>

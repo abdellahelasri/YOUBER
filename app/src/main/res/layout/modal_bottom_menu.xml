@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/bottomModalMenu"
+    android:background="@drawable/bottom_sheet_background"
+    android:backgroundTint="@color/colorWhite"
+    android:layout_height="350dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Spinner
+        android:id="@+id/ordertype"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintWidth_percent="0.9"/>
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order"
+        android:textColor="@color/TextGrey"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_marginTop="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/plus"
+        android:foreground="@drawable/ic_baseline_person_search_24"
+        android:backgroundTint="@color/Green_Logo"
+        app:layout_constraintBottom_toBottomOf="@+id/text1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintStart_toEndOf="@+id/text1"
+        app:layout_constraintTop_toTopOf="@+id/text1"
+        app:layout_constraintVertical_bias="0.909" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableRight="@drawable/ic_baseline_date_range_24"
+        android:drawableTint="@color/TextGrey"
+        android:hint="@string/select_date"
+        android:inputType="date"
+        android:paddingLeft="26dp"
+        android:layout_marginTop="25dp"
+        android:paddingRight="26dp"
+        android:textColor="@color/colorTextBlack"
+        android:textColorHint="@color/TextGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ordertype"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableRight="@drawable/ic_baseline_access_time_filled_24"
+        android:drawableTint="@color/TextGrey"
+        android:hint="@string/select_time"
+        android:inputType="time"
+        android:paddingLeft="26dp"
+        android:paddingRight="26dp"
+        android:textColor="@color/colorTextBlack"
+        android:textColorHint="@color/TextGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <Button
+        android:id="@+id/checkoutBtn"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/view_holder_background"
+        android:text="@string/Checkout"
+        android:textColor="@color/white"
+        android:layout_marginBottom="15dp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/Green_Logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cartbtn" />
+
+    <!--com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ordertype"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/order_type"
+        android:paddingBottom="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintWidth_percent="0.9">
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:id="@+id/date"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_date"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingBottom="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ordertype"
+        app:layout_constraintWidth_percent="0.9">
+
+        <EditText
+            android:id="@+id/textdate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="date"
+            android:paddingStart="10dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:id="@+id/time"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_time"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingBottom="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date"
+        app:layout_constraintWidth_percent="0.9">
+
+        <EditText
+            android:id="@+id/texttime"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="date"
+            android:paddingStart="10dp" />
+    </com.google.android.material.textfield.TextInputLayout-->
+</androidx.constraintlayout.widget.ConstraintLayout>

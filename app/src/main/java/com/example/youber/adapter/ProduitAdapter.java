@@ -1,33 +1,41 @@
 package com.example.youber.adapter;
 
-import android.content.Intent;
+
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.youber.LoginActivity;
 import com.example.youber.R;
+
 import com.example.youber.domain.Produit;
+import com.example.youber.helper.DatabaseHelper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ViewHolder> {
-    ArrayList<Produit> foodDomains;
+    List<Produit> foodDomains;
+    Context context ;
+    DatabaseHelper db;
 
-    public ProduitAdapter(ArrayList<Produit> FoodDomains) {
+
+    public ProduitAdapter(ArrayList<Produit> FoodDomains, Context context) {
         this.foodDomains = FoodDomains;
+        this.context=context;
+        this.db=new DatabaseHelper(context);
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_produit, parent, false);
-
         return new ViewHolder(inflate);
     }
 
@@ -51,9 +59,24 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ViewHold
         holder.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(holder.itemView.getContext(), LoginActivity.class);
-                intent.putExtra("object", foodDomains.get(position));
-                holder.itemView.getContext().startActivity(intent);
+                ArrayList<Integer> listproduits = new ArrayList();
+                listproduits= db.productofCart();
+                Integer quantite = foodDomains.get(holder.getAdapterPosition()).getQantite();
+                Integer idproduit = foodDomains.get(holder.getAdapterPosition()).getId();
+
+                if (quantite==0){
+                    Toast.makeText(context, "Victime de son succès: stock insuffisant", Toast.LENGTH_SHORT).show();
+                    System.out.println("Ma quantite = "+ quantite);
+                }
+                else {
+                    if (!listproduits.contains(idproduit)) {
+                        db.AddtoCartLine(idproduit,
+                                foodDomains.get(holder.getAdapterPosition()).getTitre(),
+                                foodDomains.get(holder.getAdapterPosition()).getPrix(), 1);
+                    } else {
+                        Toast.makeText(context, "Ce produit est déjà dans le panier", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
 
@@ -69,7 +92,6 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ViewHold
         TextView title, fee;
         ImageView pic;
         TextView addBtn;
-
 
         public ViewHolder(@NonNull View itemView)
         {

@@ -75,7 +75,7 @@ public class SearchFragment extends Fragment {
 
         RecyclerView rv = new RecyclerView(this.getContext());
         rv.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-        rv.setAdapter(new ProduitAdapter(listeProduits));
+        rv.setAdapter(new ProduitAdapter(listeProduits,getContext()));
         return rv;
     }
 
