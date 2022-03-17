@@ -70,12 +70,12 @@
         android:foreground="@drawable/ic_baseline_add_24"
         app:backgroundTint="@color/Green_Logo"
         app:layout_constraintBottom_toBottomOf="@+id/minusCardBtn"
-        app:layout_constraintStart_toEndOf="@+id/productQuantity"
+        app:layout_constraintStart_toEndOf="@+id/orderlineQuantity"
         app:layout_constraintTop_toTopOf="@+id/minusCardBtn"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/productQuantity"
+        android:id="@+id/orderlineQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -89,7 +89,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/prixProduit"
+        android:id="@+id/subTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"
@@ -110,9 +110,10 @@
         android:textColor="@color/Green_Logo"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/prixProduit"
-        app:layout_constraintStart_toEndOf="@+id/prixProduit"
-        app:layout_constraintTop_toTopOf="@+id/prixProduit" />
+        app:layout_constraintBottom_toBottomOf="@+id/subTotal"
+        app:layout_constraintStart_toEndOf="@+id/subTotal"
+        app:layout_constraintTop_toTopOf="@+id/subTotal"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/removeItem"
@@ -123,7 +124,7 @@
         android:background="@drawable/plus"
         android:foreground="@drawable/ic_baseline_delete_forever_24"
         app:backgroundTint="@color/colorPlaceholder"
-        app:layout_constraintBottom_toTopOf="@+id/prixProduit"
+        app:layout_constraintBottom_toTopOf="@+id/subTotal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.235" />

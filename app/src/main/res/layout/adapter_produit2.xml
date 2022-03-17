@@ -39,14 +39,14 @@
         app:layout_constraintTop_toTopOf="@+id/productPic" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textViewQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quantité: "
         android:textColor="#373b54"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/price"
+        app:layout_constraintBottom_toTopOf="@+id/_price"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toEndOf="@+id/productPic"
@@ -62,8 +62,8 @@
         android:textColor="#373b54"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/_price"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewQuantity"
+        app:layout_constraintStart_toEndOf="@+id/textViewQuantity"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -90,10 +90,10 @@
         app:layout_constraintBottom_toBottomOf="@+id/_price"
         app:layout_constraintStart_toEndOf="@+id/_price"
         app:layout_constraintTop_toTopOf="@+id/_price"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
-        android:id="@+id/button33"
+        android:id="@+id/editProduct"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
@@ -107,7 +107,7 @@
         app:layout_constraintWidth_percent="0.25" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/deleteProduct"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="12dp"
@@ -119,7 +119,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.3"
-
         app:layout_constraintVertical_bias="0.384"
         app:layout_constraintWidth_percent="0.25" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -14,12 +17,20 @@
         android:theme="@style/Theme.YOUBER">
         <activity
             android:name=".domain.AddCategorie"
-            android:exported="true" />
-
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
         <activity
             android:name=".domain.ManageCategorie"
-            android:exported="true" />
-
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
+        <activity
+            android:name=".adapter.UpdateCategory"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="true"
+            android:theme="@style/Theme.YOUBER.NoActionBar" />
         <activity
             android:name=".SecondActivity"
             android:exported="true"
@@ -60,10 +71,6 @@
             android:theme="@style/Theme.YOUBER.NoActionBar" />
         <activity
             android:name=".domain.UpdateProduitActivity"
-            android:exported="true"
-            android:theme="@style/Theme.YOUBER.NoActionBar" />
-        <activity
-            android:name=".Client.Client_full_display"
             android:exported="true"
             android:theme="@style/Theme.YOUBER.NoActionBar" />
         <activity

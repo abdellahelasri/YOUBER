@@ -26,9 +26,11 @@ import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     ArrayList<Categorie> categoriesMenu;
+    int id_order;
 
-    public CategoryAdapter(ArrayList<Categorie> categoriesMenu) {
+    public CategoryAdapter(ArrayList<Categorie> categoriesMenu,int id_order) {
         this.categoriesMenu = categoriesMenu;
+        this.id_order = id_order;
     }
 
     @NonNull
@@ -101,9 +103,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 DetailsFragment fragment = new DetailsFragment();
                 FragmentTransaction fragmentTransaction = ((AppCompatActivity)v.getContext()).getSupportFragmentManager().beginTransaction();
                 int id_cat =  categoriesMenu.get(holder.getAdapterPosition()).getId();
-                Bundle catClickBundle = new Bundle();
-                catClickBundle.putInt("id_categorie", id_cat);
-                fragment.setArguments(catClickBundle);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id_categorie", id_cat);
+                bundle.putInt("id_order", id_order);
+                fragment.setArguments(bundle);
                 fragmentTransaction.replace(R.id.detailsFragment,fragment).addToBackStack(null).commit();
             }
         });

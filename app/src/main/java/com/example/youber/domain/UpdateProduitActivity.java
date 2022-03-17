@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,10 +24,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UpdateProduitActivity extends AppCompatActivity {
-    private EditText nameEdt, catEdt, quantiteEdt, prixEdt ;
+    EditText nameEdt, catEdt, quantiteEdt, prixEdt ;
     TextView titre;
-    private Button registerBtn;
-    String name, idcat, quantite, prix;
+    CheckBox checkBox;
+    Button registerBtn;
     DatabaseHelper dbHelper;
 
     AutoCompleteTextView autoCompleteTxt;
@@ -33,7 +35,8 @@ public class UpdateProduitActivity extends AppCompatActivity {
     ArrayList<Categorie> listCategories;
 
     Map<String, Integer> map_listCategories = new HashMap<String, Integer>();
-    int idcategorie;
+    int idproduit, categorie;
+    String stockable, cat_nom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,28 +50,28 @@ public class UpdateProduitActivity extends AppCompatActivity {
         catEdt = findViewById(R.id.auto_complete_txt);
         quantiteEdt = findViewById(R.id.id_quantite);
         prixEdt = findViewById(R.id.id_price_);
+        checkBox = findViewById(R.id.getQantity);
         registerBtn = findViewById(R.id.register_btn);
         autoCompleteTxt = findViewById(R.id.auto_complete_txt);
 
         dbHelper = new DatabaseHelper(this);
+        titre.setText(R.string.edit_product);
 
         listCategories = dbHelper.displayCategorie();
 
         String[] items = new String[listCategories.size()];
-        for (int i = 0; i<listCategories.size(); i++){
+        for (int i = 0; i<listCategories.size(); i++)
+        {
             items[i]= listCategories.get(i).getTitre();
             map_listCategories.put(listCategories.get(i).getTitre(), listCategories.get(i).getId());
         }
 
-        int idproduit = Integer.parseInt(bundle.getString("idproduit", ""));
-        titre.setText("Modifier un produit");
-        nameEdt.setText(bundle.getString("nom", "No value from the MainActivity"));
+        idproduit = Integer.parseInt(bundle.getString("idproduit", ""));
+        nameEdt.setText(bundle.getString("nom", ""));
         quantiteEdt.setText(bundle.getString("quantite", ""));
+        stockable = bundle.getString("stockable","");
         prixEdt.setText(bundle.getString("prix", ""));
-
-        int categorie = Integer.parseInt(bundle.getString("categorie",""));
-
-        String cat_nom ="";
+        categorie = (int)Integer.parseInt(bundle.getString("categorie",""));
 
         for (int i = 0; i<listCategories.size(); i++){
             if (map_listCategories.get(listCategories.get(i).getTitre()) == categorie){
@@ -77,37 +80,82 @@ public class UpdateProduitActivity extends AppCompatActivity {
         }
         catEdt.setText(cat_nom);
 
-        adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
+        autoCompleteTxt.setText(cat_nom);
 
+        adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
         autoCompleteTxt.setAdapter(adapterItems);
 
         autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
-
-                idcategorie = map_listCategories.get(item);
-                Toast.makeText(getApplicationContext(),"Categorie : "+item,Toast.LENGTH_SHORT).show();
+                categorie = map_listCategories.get(item);
             }
         });
 
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (checkBox.isChecked()) {
+                    quantiteEdt.setVisibility(View.VISIBLE);
+                    stockable = "true";
+                }
+                else
+                {
+                    quantiteEdt.setVisibility(View.INVISIBLE);
+                    stockable = "false";
+                }
+            }
+        });
+
+        if(stockable.equals("false")){
+            quantiteEdt.setVisibility(View.INVISIBLE);
+            checkBox.setChecked(false);
+        }
+        else if(stockable.equals("true")){
+            quantiteEdt.setVisibility(View.VISIBLE);
+            checkBox.setChecked(true);
+        }
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!nameEdt.getText().toString().isEmpty() || !prixEdt.getText().toString().isEmpty()) {
 
+                    if (stockable == "true"){
+                        dbHelper.updateProduit(idproduit,
+                                nameEdt.getText().toString(),
+                                categorie,
+                                Integer.parseInt(quantiteEdt.getText().toString()),
+                                stockable,
+                                Double.parseDouble(prixEdt.getText().toString()));
+                    }
+                    else {
+                        dbHelper.updateProduit(idproduit,
+                                nameEdt.getText().toString(),
+                                categorie,
+                                0,
+                                stockable,
+                                Double.parseDouble(prixEdt.getText().toString()));
+                    }
+                    Toast.makeText(UpdateProduitActivity.this, R.string.productupdate_success, Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(UpdateProduitActivity.this, ManageProduit.class);
+                    startActivity(i);
+                    finish();
+                }
+                else {
+                    Toast.makeText(UpdateProduitActivity.this, R.string.fill_the_form, Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                dbHelper.updateProduit(idproduit,
-                        nameEdt.getText().toString(),
-                        idcategorie,
-                        Integer.parseInt(quantiteEdt.getText().toString()),
-                        Double.parseDouble(prixEdt.getText().toString()));
-
-                // displaying a toast message that our course has been updated.
-                Toast.makeText(UpdateProduitActivity.this, "Produit modifié avec succès", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(UpdateProduitActivity.this, ManageProduit.class);
-                startActivity(i);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, ManageProduit.class));
+        overridePendingTransition(0, android.R.anim.slide_out_right);
+        finish();
     }
 }

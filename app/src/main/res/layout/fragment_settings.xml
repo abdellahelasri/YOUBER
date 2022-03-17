@@ -181,8 +181,70 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/cardView"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="5dp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
+                        <Button
+                            android:id="@+id/id_export"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="18dp"
+                            android:background="@drawable/ic_cat"
+                            android:foreground="@drawable/ic_cat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Exporter"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/cardView"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/id_import"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="18dp"
+                            android:background="@drawable/ic_cat"
+                            android:foreground="@drawable/ic_cat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Importer"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
             </GridLayout>
         </LinearLayout>
     </ScrollView>

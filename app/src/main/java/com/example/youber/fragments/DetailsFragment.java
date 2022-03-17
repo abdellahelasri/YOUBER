@@ -36,19 +36,12 @@ public class DetailsFragment extends Fragment {
          */
         Bundle catClickBundle = getArguments();
 
-        if (catClickBundle == null)
-        {
-            Toast.makeText(getContext(),"Erreur id_categorie", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            int id_cat= catClickBundle.getInt("id_categorie");
-            listeProduits = DBhelper.displayCatProducts(id_cat);
-        }
-
+        int id_cat= catClickBundle.getInt("id_categorie");
+        int id_order = catClickBundle.getInt("id_order");
+        listeProduits = DBhelper.displayCatProducts(id_cat);
 
         rv.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-        rv.setAdapter(new ProduitAdapter(listeProduits,getContext()));
+        rv.setAdapter(new ProduitAdapter(listeProduits,getContext(),id_order));
         return rv;
     }
 }

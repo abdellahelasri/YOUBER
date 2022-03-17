@@ -7,17 +7,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.youber.R;
+import com.example.youber.domain.UpdateProduitActivity;
 import com.example.youber.helper.DatabaseHelper;
 
 public class UpdateClientActivity extends AppCompatActivity {
 
-    private EditText nameEdt, prenameEdt, telephoneEdt, adresseEdt;
-    private Button registerBtn;
-    String name, prename, telephone, adressePostale;
+    EditText nameEdt, prenomEdt, telephoneEdt, adresseEdt, villeEdt;
+    TextView title;
+    Button registerBtn, backBtn;
+    int idClient;
+
     DatabaseHelper dbHelper;
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, ManageClient.class));
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        finish();
+    }
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -26,40 +37,64 @@ public class UpdateClientActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        // initializing all our variables.
         nameEdt = findViewById(R.id.id_name);
-        prenameEdt = findViewById(R.id.id_prename);
+        prenomEdt = findViewById(R.id.id_prename);
         telephoneEdt = findViewById(R.id.id_telephone);
-        adresseEdt = findViewById(R.id.id_adress_postale);
-        registerBtn = findViewById(R.id.button3);
+        adresseEdt = findViewById(R.id.id_adress);
+        villeEdt = findViewById(R.id.city);
+        registerBtn = findViewById(R.id.saveBtn);
+        backBtn = findViewById(R.id.backBtn);
+        title = findViewById(R.id.title);
 
         dbHelper = new DatabaseHelper(this);
 
-        // on below lines we are getting data which
-        // we passed in our adapter class.
-        String nomOrigi = (bundle.getString("name", String.valueOf(0)));
+        title.setText(R.string.update_client);
+        idClient = bundle.getInt("idclient");
+        nameEdt.setText(bundle.getString("nom", ""));
+        prenomEdt.setText(bundle.getString("prenom", ""));
+        telephoneEdt.setText(bundle.getString("telephone", ""));
+        adresseEdt.setText(bundle.getString("adresse", ""));
+        villeEdt.setText(bundle.getString("ville", ""));
 
-        nameEdt.setText(bundle.getString("name", "No value from the MainActivity"));
-        prenameEdt.setText(bundle.getString("prename", "No value from the MainActivity"));
-        telephoneEdt.setText(bundle.getString("telephone", "No value from the MainActivity"));
-        adresseEdt.setText(bundle.getString("adressePostale", "No value from the MainActivity"));
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
-        // adding on click listener to our update course button.
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                // inside this method we are calling an update course
-                // method and passing all our edit text values.
-                dbHelper.updateClient(nomOrigi, nameEdt.getText().toString(), prenameEdt.getText().toString(), telephoneEdt.getText().toString(), adresseEdt.getText().toString());
+                if (nameEdt.getText().toString().isEmpty() ||
+                        prenomEdt.getText().toString().isEmpty()||
+                        telephoneEdt.getText().toString().isEmpty()||
+                        adresseEdt.getText().toString().isEmpty()||
+                        villeEdt.getText().toString().isEmpty()){
+                    Toast.makeText(UpdateClientActivity.this, R.string.fill_the_form, Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                // displaying a toast message that our course has been updated.
-                Toast.makeText(UpdateClientActivity.this, "Client mis à jour !", Toast.LENGTH_SHORT).show();
+                dbHelper.updateClient(idClient,
+                        nameEdt.getText().toString(),
+                        prenomEdt.getText().toString(),
+                        telephoneEdt.getText().toString(),
+                        adresseEdt.getText().toString(),
+                        villeEdt.getText().toString());
 
-                // launching our main activity.
+                Toast.makeText(UpdateClientActivity.this, R.string.client_saved, Toast.LENGTH_SHORT).show();
+
                 Intent i = new Intent(UpdateClientActivity.this, ManageClient.class);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("commande", false);
+                i.putExtras(bundle);
                 startActivity(i);
+                overridePendingTransition(0, android.R.anim.slide_out_right);
+                finish();
             }
         });
     }
+
+
 }

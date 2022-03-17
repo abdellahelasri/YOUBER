@@ -10,12 +10,14 @@ public class Produit  {
     private String logo;
     private Double prix;
     private int id;
+    private String stockable;
     private int qantite;
 
     private  static  final String IDP_COL = "idproduit";
     private  static  final String  IDCAT_COL = "idcat" ;
     private static  final  String  NOM_COL = "nom";
     private static  final  String  QUANTITE_COL = "quantite_stock" ;
+    private static  final  String  STOCKABLE = "stockable";
     private static  final  String  PRIX_COL = "prix" ;
 
     public Produit (Cursor cursor)
@@ -25,6 +27,15 @@ public class Produit  {
         nom = cursor.getString(cursor.getColumnIndexOrThrow(NOM_COL));
         prix = cursor.getDouble(cursor.getColumnIndexOrThrow(PRIX_COL));
         qantite = cursor.getInt(cursor.getColumnIndexOrThrow(QUANTITE_COL));
+        stockable = cursor.getString(cursor.getColumnIndexOrThrow(STOCKABLE));
+    }
+
+    public int getIdcat() {
+        return idcat;
+    }
+
+    public void setIdcat(int idcat) {
+        this.idcat = idcat;
     }
 
     public String getTitre() {
@@ -62,4 +73,8 @@ public class Produit  {
     public void setQantite(int qantite) {
         this.qantite = qantite;
     }
+
+    public String getStockable() { return stockable;  }
+
+    public void setStockable(String stockable) { this.stockable = stockable; }
 }

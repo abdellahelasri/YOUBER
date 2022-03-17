@@ -5,6 +5,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/erreurImage"
+        android:layout_width="250dp"
+        android:layout_height="175dp"
+        android:background="@drawable/ic__04"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/erreurTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/erreur"
+        android:textColor="@color/TextGrey"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/erreurImage"
+        app:layout_constraintStart_toStartOf="@+id/erreurImage"
+        app:layout_constraintTop_toBottomOf="@+id/erreurImage" />
+
     <Button
         android:id="@+id/backBtn"
         android:layout_width="30dp"
@@ -17,22 +41,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/txtCat"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="12dp"
         android:gravity="center"
-        android:text="YOUBER"
+        android:text="@string/App"
         android:textColor="@color/Green_Logo"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SearchView
-        android:id="@+id/searchProduct"
+        android:id="@+id/search"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="24dp"
@@ -43,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/txtCat"
         app:layout_constraintWidth_percent="0.9" />
 
     <ScrollView
@@ -55,7 +79,7 @@
         app:layout_constraintHeight_percent="0.73"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchProduct"
+        app:layout_constraintTop_toBottomOf="@+id/search"
         app:layout_constraintVertical_bias="0.315">
 
         <LinearLayout
@@ -65,7 +89,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/catTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -84,7 +108,7 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/txtProducts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

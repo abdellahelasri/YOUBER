@@ -5,7 +5,12 @@ import android.database.Cursor;
 import java.io.Serializable;
 
 public class Client implements Serializable {
-        private int idclient;
+    private int idclient;
+    private String nom;
+    private String prenom;
+    private String telephone;
+    private String adresse;
+    private String ville;
 
     public int getIdclient() {
         return idclient;
@@ -14,13 +19,6 @@ public class Client implements Serializable {
     public void setIdclient(int idclient) {
         this.idclient = idclient;
     }
-
-    private String nom;
-        private String prenom;
-        private String telephone;
-        private String adresse;
-        private String ville;
-        private int zip;
 
     public String getNom() {
         return nom;
@@ -46,9 +44,7 @@ public class Client implements Serializable {
         this.telephone = telephone;
     }
 
-    public String getAdresse() {
-        return adresse;
-    }
+    public String getAdresse() { return adresse; }
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
@@ -63,16 +59,14 @@ public class Client implements Serializable {
     }
 
     public Client (Cursor cursor)
-        {
-            nom = cursor.getString(cursor.getColumnIndexOrThrow("nom"));
-            prenom = cursor.getString(cursor.getColumnIndexOrThrow("prenom"));
-            telephone = cursor.getString(cursor.getColumnIndexOrThrow("telephone"));
-            adresse = cursor.getString(cursor.getColumnIndexOrThrow("adresse"));
-            //ville = cursor.getString(cursor.getColumnIndexOrThrow("ville"));
-            //zip = cursor.getInt(cursor.getColumnIndexOrThrow("zip"));
-        }
-
-
+    {
+        idclient = cursor.getInt(cursor.getColumnIndexOrThrow("idclient"));
+        nom = cursor.getString(cursor.getColumnIndexOrThrow("nom"));
+        prenom = cursor.getString(cursor.getColumnIndexOrThrow("prenom"));
+        telephone = cursor.getString(cursor.getColumnIndexOrThrow("telephone"));
+        adresse = cursor.getString(cursor.getColumnIndexOrThrow("adresse"));
+        ville = cursor.getString(cursor.getColumnIndexOrThrow("ville"));
+    }
 }
 
 

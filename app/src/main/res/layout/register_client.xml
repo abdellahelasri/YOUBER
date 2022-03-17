@@ -11,56 +11,12 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.30"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.042"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_background"
-            android:gravity="center_horizontal"
-            android:iconifiedByDefault="false"
-            android:queryBackground="@android:color/transparent"
-            android:queryHint="Chercher client..."
-            app:iconifiedByDefault="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.159"
-            app:layout_constraintWidth_percent="0.85"
-            app:queryHint="Chercher client" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_weight="3"
         android:layout_height="0dp"
         android:background="@drawable/card_background"
         android:elevation="36dp"
-        app:layout_constraintHeight_percent="0.70"
+        app:layout_constraintHeight_percent="0.9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -71,7 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
-            android:foregroundGravity="bottom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="1"
@@ -92,16 +47,16 @@
                     >
 
                     <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="0sp"
-                        android:layout_height="0sp"
-                        android:layout_marginTop="30dp"
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
                         app:layout_constraintHeight_percent="0.5"
-                        android:text="Enregistrer un nouveau client"
+                        android:text="@string/add_client"
                         android:textAlignment="center"
                         android:textColor="@color/green_Logo2"
+                        android:textSize="27sp"
                         android:textStyle="bold"
-                        app:autoSizeTextType="uniform"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.497"
                         app:layout_constraintStart_toStartOf="parent"
@@ -111,14 +66,14 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <EditText
-                    android:id="@+id/id_name"
+                    android:id="@+id/id_prename"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginLeft="48dp"
                     android:layout_marginRight="48dp"
                     android:background="@drawable/edit_text_background"
                     android:drawableTint="@color/colorTextBlack"
-                    android:hint="Nom"
+                    android:hint="@string/first_name"
                     android:inputType="textPersonName"
                     android:paddingLeft="26dp"
                     android:paddingRight="26dp"
@@ -126,7 +81,7 @@
                     android:textColorHint="@color/colorPlaceholder" />
 
                 <EditText
-                    android:id="@+id/id_prename"
+                    android:id="@+id/id_name"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginLeft="48dp"
@@ -134,7 +89,7 @@
                     android:layout_marginRight="48dp"
                     android:background="@drawable/edit_text_background"
                     android:drawableTint="@color/colorTextBlack"
-                    android:hint="Prénom"
+                    android:hint="@string/name"
                     android:inputType="textPersonName"
                     android:paddingLeft="26dp"
                     android:paddingRight="26dp"
@@ -174,7 +129,7 @@
                     android:textColorHint="@color/colorPlaceholder" />
 
                 <EditText
-                    android:id="@+id/id_adress_postale"
+                    android:id="@+id/city"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginLeft="48dp"
@@ -182,15 +137,15 @@
                     android:layout_marginRight="48dp"
                     android:background="@drawable/edit_text_background"
                     android:drawableTint="@color/colorTextBlack"
-                    android:hint="Code postal"
-                    android:inputType="number"
+                    android:hint="@string/city"
+                    android:inputType="text"
                     android:paddingLeft="26dp"
                     android:paddingRight="26dp"
                     android:textColor="@color/colorTextBlack"
                     android:textColorHint="@color/colorPlaceholder" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/saveBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -207,10 +162,23 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
+
             </LinearLayout>
         </ScrollView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+        app:backgroundTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

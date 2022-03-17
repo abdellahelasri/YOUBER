@@ -134,7 +134,7 @@
                         app:endIconMode="clear_text">
 
                         <EditText
-                            android:id="@+id/code"
+                            android:id="@+id/cityOrder2"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:inputType="textEmailAddress"

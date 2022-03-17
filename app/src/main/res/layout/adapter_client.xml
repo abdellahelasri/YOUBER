@@ -2,51 +2,134 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLayout"
-    android:layout_width="170dp"
-    android:layout_height="100dp"
-    android:layout_gravity="center_horizontal"
-    android:layout_margin="8dp"
-    android:background="@drawable/category_background">
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/view_holder_background"
+    android:elevation="10dp">
 
     <TextView
-        android:id="@+id/adapterclientName"
-        android:layout_width="79dp"
-        android:layout_height="26dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:text="Nom"
-        android:textColor="#6e6e70"
-        android:textSize="16sp"
+        android:id="@+id/cityOrder2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="name"
         android:textStyle="bold"
+        android:textSize="19sp"
+        android:textColor="@color/TextGrey"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/clientPic"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/addressOrder2"
+        app:layout_constraintTop_toTopOf="@+id/addressOrder2"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/clientPic"
-        android:layout_width="80dp"
-        android:layout_height="88dp"
+    <TextView
+        android:id="@+id/code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="#"
+        android:textStyle="bold"
+        android:textSize="19sp"
+        android:textColor="@color/TextGrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/orderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="code"
+        android:textColor="@color/TextGrey"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/code"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addressOrder2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
+        android:text="Prenom"
+        android:textColor="@color/TextGrey"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/code" />
+
+    <TextView
+        android:id="@+id/clientAdress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
+        android:text="88 rue louis"
+        android:textStyle="bold"
+        android:textSize="19sp"
+        android:textColor="@color/TextGrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneOrder" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
+        android:text="Maville"
+        android:textColor="@color/TextGrey"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clientAdress" />
+
+    <TextView
+        android:id="@+id/phoneOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
+        android:text="0600000000"
+        android:textStyle="bold"
+        android:textSize="19sp"
+        android:textColor="@color/TextGrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressOrder2" />
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/plus"
+        android:foreground="@drawable/ic_baseline_edit_24"
+        app:backgroundTint="@color/Green_Logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/plus"
+        android:foreground="@drawable/ic_baseline_delete_forever_24"
+        app:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_icon" />
+        app:layout_constraintHeight_percent="0.3"
 
-    <TextView
-        android:id="@+id/adapterclientPreName"
-        android:layout_width="98dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="17dp"
-        android:text="Prenom"
-        android:textColor="#6e6e70"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/adapterclientName"
-        app:layout_constraintEnd_toStartOf="@+id/clientPic"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.818" />
-
+        app:layout_constraintVertical_bias="0.384"
+        app:layout_constraintWidth_percent="0.25" />
 </androidx.constraintlayout.widget.ConstraintLayout>

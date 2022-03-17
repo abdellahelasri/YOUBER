@@ -15,9 +15,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.youber.R;
+import com.example.youber.SecondActivity;
 import com.example.youber.adapter.ClientAdapter;
 import com.example.youber.adapter.ProduitAdapter;
 import com.example.youber.domain.ProduitAdapter2;
@@ -31,13 +33,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class ManageProduit extends AppCompatActivity {
+public class ManageProduit extends AppCompatActivity{
 
-    FloatingActionButton addButton, displaybutton, updatebutton, deletebutton;
-    RecyclerView recyclerViewCategories;
-    ProduitAdapter2 adapter;
-
+    Button addButton, backBtn;
     DatabaseHelper dbHelper;
+    TextView errorText;
+    ImageView errorImage;
     SearchView searchView;
     ArrayList<Produit> listProduits = new ArrayList<>();
 
@@ -46,20 +47,28 @@ public class ManageProduit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produits_table);
+        backBtn = findViewById(R.id.backBtn);
         addButton = findViewById(R.id.addbutton);
-        searchView = findViewById(R.id.searchView);
+        searchView = findViewById(R.id.searchItem);
+        errorText = findViewById(R.id.textError);
+        errorImage = findViewById(R.id.imageError);
 
         dbHelper = new DatabaseHelper(this);
 
         listProduits = dbHelper.displayAllProducts();
 
-
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ManageProduit.this, AddProduit.class));
-
+                finish();
             }
         });
 
@@ -72,9 +81,8 @@ public class ManageProduit extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 listProduits = dbHelper.displayAllProducts();
-                 ArrayList <Produit> listPro =  new ArrayList<>();
+                ArrayList <Produit> listPro =  new ArrayList<>();
                 for (Produit item : listProduits) {
-                    // checking if the entered string matched with any item of our recycler view.
                     if (item.getTitre().toLowerCase().contains(newText.toLowerCase())) {
                         listPro.add(item);
                     }
@@ -84,24 +92,33 @@ public class ManageProduit extends AppCompatActivity {
                 return false;
             }
         });
-
         getProducts();
-
     }
 
-    void getProducts(){
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
+    public void getProducts(){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        RecyclerView recyclerViewProducts = findViewById(R.id.recyclerView);
+        recyclerViewProducts.setLayoutManager(linearLayoutManager);
 
-        RecyclerView recyclerViewCategories = findViewById(R.id.recyclerView);
-        recyclerViewCategories.setLayoutManager(linearLayoutManager);
-
-        ProduitAdapter2 adapter = new ProduitAdapter2(listProduits, this);
-        recyclerViewCategories.setAdapter(adapter);
-
+        if (listProduits.isEmpty())
+        {
+            errorImage.setVisibility(View.VISIBLE);
+            errorText.setVisibility(View.VISIBLE);
+            recyclerViewProducts.setVisibility(View.INVISIBLE);
+        }
+        else {
+            errorImage.setVisibility(View.INVISIBLE);
+            errorText.setVisibility(View.INVISIBLE);
+            recyclerViewProducts.setVisibility(View.VISIBLE);
+            ProduitAdapter2 adapter = new ProduitAdapter2(listProduits, this);
+            recyclerViewProducts.setAdapter(adapter);
+        }
     }
-
-
 }
 
 

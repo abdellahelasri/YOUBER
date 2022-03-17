@@ -5,9 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -21,31 +18,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddCategorie extends AppCompatActivity {
-    private EditText nameEdt, catEdt, quantiteEdt, prixEdt;
-    CheckBox checkBoxEdt;
+    private EditText nameEdt;
     private Button registerBtn;
-    String name;
     DatabaseHelper dbHelper;
 
     ArrayList<Categorie> listCategories;
 
     Map<String, Integer> map_listCategories = new HashMap<String, Integer>();
-    Integer idcategorie;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_category);
-        // initializing all our variables.
-        nameEdt = findViewById(R.id.categorie_);
 
+        nameEdt = findViewById(R.id.category);
 
-
-        registerBtn = findViewById(R.id.btn_categorie);
+        registerBtn = findViewById(R.id.saveBtnCat);
 
         dbHelper = new DatabaseHelper(this);
-        ArrayList<Integer> listIDCategorie = new ArrayList<>();
 
         listCategories = dbHelper.displayCategorie();
 
@@ -59,21 +50,27 @@ public class AddCategorie extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // below line is to get data from all edit text fields.
                 String name = nameEdt.getText().toString();
 
-                // validating if the text fields are empty or not.
                 if (name.isEmpty()) {
-                    Toast.makeText(AddCategorie.this, "Merci de remplir tous les champs..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddCategorie.this, R.string.fill_the_form, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 dbHelper.addCategorie(name);
-                Toast.makeText(AddCategorie.this, "Categorie jouté avec succès.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddCategorie.this, R.string.category_saved, Toast.LENGTH_SHORT).show();
                 nameEdt.setText("");
 
                 Intent i = new Intent(AddCategorie.this, ManageCategorie.class);
                 startActivity(i);
+                finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, ManageCategorie.class));
+        overridePendingTransition(0, android.R.anim.slide_out_right);
+        finish();
     }
 }

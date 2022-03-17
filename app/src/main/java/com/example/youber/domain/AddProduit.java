@@ -2,6 +2,8 @@ package com.example.youber.domain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +12,15 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.youber.Client.ManageClient;
+import com.example.youber.NewOrderActivity;
 import com.example.youber.R;
 
+import com.example.youber.SecondActivity;
 import com.example.youber.helper.DatabaseHelper;
 
 import java.util.ArrayList;
@@ -22,10 +28,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddProduit extends AppCompatActivity {
-    private EditText nameEdt, catEdt, quantiteEdt, prixEdt;
+    EditText nameEdt, catEdt, quantiteEdt, prixEdt;
     CheckBox checkBoxEdt;
-    private Button registerBtn;
-    String name, idcat, quantite, prix;
+    Button registerBtn;
+    String stockable="false";
     DatabaseHelper dbHelper;
 
     AutoCompleteTextView autoCompleteTxt;
@@ -40,19 +46,19 @@ public class AddProduit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_product);
-        // initializing all our variables.
+
         nameEdt = findViewById(R.id.id_name_);
         catEdt = findViewById(R.id.auto_complete_txt);
         quantiteEdt = findViewById(R.id.id_quantite);
         prixEdt = findViewById(R.id.id_price_);
+        checkBoxEdt = findViewById(R.id.getQantity);
 
 
         autoCompleteTxt = findViewById(R.id.auto_complete_txt);
 
-        registerBtn = findViewById(R.id.button3);
+        registerBtn = findViewById(R.id.register_btn);
 
         dbHelper = new DatabaseHelper(this);
-        ArrayList<Integer> listIDCategorie = new ArrayList<>();
 
         listCategories = dbHelper.displayCategorie();
 
@@ -66,13 +72,25 @@ public class AddProduit extends AppCompatActivity {
         adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
         autoCompleteTxt.setAdapter(adapterItems);
 
+        checkBoxEdt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    quantiteEdt.setVisibility(View.VISIBLE);
+                    stockable ="true";
+                }
+                else{
+                    quantiteEdt.setVisibility(View.INVISIBLE);
+                    stockable = "false";
+                    }
+            }
+        });
+
         autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
-
                 idcategorie = map_listCategories.get(item);
-                Toast.makeText(getApplicationContext(),"Categorie : "+idcategorie,Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -80,27 +98,32 @@ public class AddProduit extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // below line is to get data from all edit text fields.
                 String name = nameEdt.getText().toString();
+                String quantite = quantiteEdt.getText().toString();
+                String prix = prixEdt.getText().toString();
 
-                int quantite = Integer.parseInt(quantiteEdt.getText().toString());
-                Double prix = Double.parseDouble(prixEdt.getText().toString());
-
-                // validating if the text fields are empty or not.
-                if (name.isEmpty() || idcategorie.toString().isEmpty() || prix.toString().isEmpty()) {
-                    Toast.makeText(AddProduit.this, "Merci de remplir tous les champs..", Toast.LENGTH_SHORT).show();
+                if (idcategorie==null|| name.isEmpty() || prix.toString().isEmpty()) {
+                    Toast.makeText(AddProduit.this, R.string.fill_the_form, Toast.LENGTH_SHORT).show();
                     return;
                 }
-                dbHelper.addProduit(name,idcategorie, quantite, prix);
-
-                Toast.makeText(AddProduit.this, "Produit jouté avec succès.", Toast.LENGTH_SHORT).show();
-                nameEdt.setText("");
-                catEdt.setText("");
-                quantiteEdt.setText("");
-                prixEdt.setText("");
-                Intent i = new Intent(AddProduit.this, ManageProduit.class);
-                startActivity(i);
+                else{
+                    Double price = Double.parseDouble(prix);
+                    if(checkBoxEdt.isChecked())
+                        dbHelper.addProduit(name,idcategorie, quantite,stockable, price);
+                    else  dbHelper.addProduit_(name, idcategorie, stockable, price);
+                    Toast.makeText(AddProduit.this, R.string.product_saved, Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(AddProduit.this, ManageProduit.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, ManageProduit.class));
+        overridePendingTransition(0, android.R.anim.slide_out_right);
+        finish();
     }
 }

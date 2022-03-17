@@ -146,6 +146,31 @@
             app:layout_constraintTop_toTopOf="@+id/totalTxt"
             app:layout_constraintVertical_bias="0.0" />
 
+        <ImageView
+            android:id="@+id/emptyImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/ic_cartempty"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/listCommande"
+            app:layout_constraintEnd_toEndOf="@+id/listCommande"
+            app:layout_constraintStart_toStartOf="@+id/listCommande"
+            app:layout_constraintTop_toTopOf="@+id/listCommande" />
+
+        <TextView
+            android:id="@+id/emptyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/EmptyCart"
+            android:textColor="@color/TextGrey"
+            android:visibility="invisible"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/emptyImage"
+            app:layout_constraintStart_toStartOf="@+id/emptyImage"
+            app:layout_constraintTop_toBottomOf="@+id/emptyImage" />
+
+
         <Button
             android:id="@+id/checkoutBtn"
             android:layout_width="match_parent"
