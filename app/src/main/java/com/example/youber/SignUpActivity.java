@@ -83,8 +83,8 @@ public class SignUpActivity extends AppCompatActivity {
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                final String username = "abdellahelasri18@gmail.com";
-                                final String password = "kndzblrruyoikaaq";
+                                final String username = "your-email@gmail.com";
+                                final String password = "xxxxxxxx";
 
                                 Properties props = new Properties();
                                 props.put("mail.smtp.auth", "true");
